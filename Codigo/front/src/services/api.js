@@ -118,8 +118,11 @@ export const getUserById = (id) => makeRequest(`/users/${id}`, 'GET');
 export const createUser = (userData) => makeRequest('/users', 'POST', userData);
 export const updateUser = (id, userData) => makeRequest(`/users/${id}`, 'PUT', userData);
 export const deleteUser = (id) => makeRequest(`/users/${id}`, 'DELETE');
-export const loginUser = (credentials) => makeRequest('/users/login', 'POST', credentials);
-
+export const loginUser = (username, password) =>
+  makeRequest('/users/login', 'POST', {
+    username,
+    password,
+  });
 /**
  * ===== UTILITÃƒÆ’Ã‚ÂRIOS =====
  */
