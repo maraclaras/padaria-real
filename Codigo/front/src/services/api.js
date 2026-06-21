@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_HOST = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/$/, '');
+const API_BASE_URL = `${API_HOST}/api`;
 
 /**
  * ServiÃƒÆ’Ã‚Â§o centralizado para comunicaÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o com a API do backend
@@ -117,7 +118,7 @@ export const getUserById = (id) => makeRequest(`/users/${id}`, 'GET');
 export const createUser = (userData) => makeRequest('/users', 'POST', userData);
 export const updateUser = (id, userData) => makeRequest(`/users/${id}`, 'PUT', userData);
 export const deleteUser = (id) => makeRequest(`/users/${id}`, 'DELETE');
-export const loginUser = (username, password) => makeRequest('/users/login', 'POST', { username, password });
+export const loginUser = (credentials) => makeRequest('/users/login', 'POST', credentials);
 
 /**
  * ===== UTILITÃƒÆ’Ã‚ÂRIOS =====
