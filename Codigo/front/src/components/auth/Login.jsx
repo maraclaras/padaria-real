@@ -7,34 +7,41 @@ function Login({ onLogin }) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleLogin = async (e) => {
+  e.preventDefault();
 
-    const usuarioDigitado = username.trim();
-    const senhaDigitada = password.trim();
+  try {
+    const response = await fetch('https://padaria-real-production.up.railway.app/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username.trim(),
+        password: password.trim(),
+      }),
+    });
 
-    if (!usuarioDigitado || !senhaDigitada) {
-      setError('Preencha usuário e senha para continuar.');
-      return;
+    const text = await response.text();
+
+    alert(`STATUS: ${response.status}\nRESPOSTA: ${text}`);
+
+    if (!response.ok) {
+      throw new Error(text);
     }
 
-    if (typeof onLogin === 'function') {
-      try {
-        setLoading(true);
-        setError('');
+    const data = JSON.parse(text);
 
-        const loginValido = await onLogin(usuarioDigitado, senhaDigitada);
-
-        if (!loginValido) {
-          setError('Usuário ou senha inválidos.');
-        }
-      } catch (err) {
-        setError(err.message || 'Usuário ou senha inválidos.');
-      } finally {
-        setLoading(false);
-      }
+    if (data.success) {
+      localStorage.setItem('user', JSON.stringify(data));
+      navigate('/dashboard');
+    } else {
+      alert('Usuário ou senha inválidos');
     }
-  };
+  } catch (error) {
+    alert(`ERRO REAL: ${error.message}`);
+  }
+};
 
   return (
     <main className="login-page">
