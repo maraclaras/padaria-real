@@ -1,0 +1,2798 @@
+/* ==========================================================================
+   TELAS DE GERENCIAMENTO - PADARIA REAL
+   CSS organizado, sem blocos repetidos exatos e sem alterar a lógica visual.
+   ========================================================================== */
+
+.category-management-container,
+.user-management-container,
+.advanced-list-container,
+.full-width-layout,
+.management-container,
+.dashboard-layout {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+}
+
+.category-management-flex-content,
+.user-management-flex-content {
+  align-items: start;
+}
+
+.category-form-box,
+.user-form-box {
+  position: sticky;
+  top: 28px;
+  max-width: none;
+}
+
+.category-list-box,
+.user-list-box,
+.product-list-results {
+  min-width: 0;
+}
+
+.form-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 4px;
+  padding: 14px 16px;
+  border: 2px solid var(--border-soft);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.form-checkbox-group input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px;
+  margin: 0 !important;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.form-checkbox-group label {
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-main);
+}
+
+.user-list-box .actions-cell {
+  min-width: 245px;
+}
+
+.category-list-box .actions-cell {
+  min-width: 150px;
+}
+
+.product-management-layout .content-box,
+.product-management-layout > div > .content-box,
+.product-management-layout > div > div {
+  min-width: 0;
+}
+
+.filter-bar {
+  margin-bottom: 18px;
+}
+
+.filter-bar .sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 14px;
+  align-items: center;
+}
+
+.advanced-list-container .content-box {
+  padding: clamp(16px, 1.4vw, 20px);
+}
+
+.advanced-list-container .data-table {
+  table-layout: auto;
+}
+
+.advanced-list-container .data-table th,
+.advanced-list-container .data-table td {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.product-list-search button[type="button"] {
+  background: #fff1ec;
+  color: var(--danger);
+  border: 1px solid #f1cfc1;
+}
+
+.product-table th {
+  font-weight: 900;
+  color: #111;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.product-table td {
+  color: #5f5f5f;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.product-table td:nth-child(2) {
+  line-height: 1.35;
+}
+
+.product-table .actions-cell .edit-button {
+  background: #f7eee4;
+  color: var(--primary);
+  border: 1px solid #ebd6bd;
+}
+
+.product-table .actions-cell .delete-button {
+  background: #fff1ec;
+  color: var(--danger);
+  border: 1px solid #f1cfc1;
+}
+
+@media (max-width: 1280px) {
+  .product-management-layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .product-management-layout > div:first-child {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .product-management-layout > div:first-child .content-box {
+    max-width: 280px;
+    padding: 20px 16px;
+  }
+
+  .product-list-card {
+    padding: 20px;
+  }
+
+  .product-table th,
+  .product-table td {
+    padding: 12px 6px;
+    font-size: 0.82rem;
+  }
+
+  .product-table .actions-cell .action-button {
+    min-width: 64px;
+    padding: 8px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .product-management-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .product-management-layout > div:first-child {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .product-management-layout > div:first-child .content-box {
+    max-width: none;
+  }
+
+  .product-list-header {
+    grid-template-columns: 1fr;
+  }
+
+  .product-list-search {
+    grid-template-columns: minmax(0, 1fr) 100px auto;
+  }
+
+  .product-list-container {
+    overflow-x: auto;
+  }
+
+  .product-table {
+    min-width: 900px;
+  }
+}
+
+@media (max-width: 760px) {
+  .product-list-card {
+    padding: 18px;
+  }
+
+  .product-list-search {
+    grid-template-columns: 1fr;
+  }
+
+  .product-list-search button {
+    width: 100%;
+  }
+
+  .product-list-container {
+    overflow-x: visible;
+  }
+
+  .product-table {
+    min-width: 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 14px;
+  }
+
+  .product-table thead,
+  .product-table colgroup {
+    display: none;
+  }
+
+  .product-table tbody,
+  .product-table tr,
+  .product-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .product-table tr {
+    padding: 16px;
+    border: 1px solid #efd7b7;
+    border-radius: 18px;
+    background: rgba(255, 253, 250, 0.96);
+  }
+
+  .product-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(232, 205, 168, 0.35);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    text-align: right;
+  }
+
+  .product-table td::before {
+    content: attr(data-label);
+    font-weight: 900;
+    color: var(--primary);
+    text-align: left;
+  }
+
+  .product-table td:last-child {
+    border-bottom: none;
+  }
+
+  .product-table .actions-cell {
+    justify-content: flex-end;
+  }
+
+  .product-table .actions-cell::before {
+    margin-right: auto;
+  }
+}
+
+.filter-grid > label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 900;
+  margin: 0;
+}
+
+.sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.management-header,
+.action-header,
+.sales-header-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.header-title-section {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.management-header h2,
+.header-title-section h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+}
+
+.header-controls-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 0 1 320px;
+}
+
+.date-filter-wrapper {
+  width: 100%;
+  max-width: 250px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  background: #fffdfa;
+  border: 2px solid var(--border-soft);
+  border-radius: 18px;
+  padding: 0 14px;
+  box-shadow: none;
+}
+
+.date-filter-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 6px !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--text-main);
+  font-weight: 700;
+  outline: none;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.date-filter-input:focus {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.date-filter-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .date-filter-wrapper {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+.daily-summary-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.daily-summary-card {
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px;
+  background: rgba(255, 253, 250, 0.9);
+  border: 1px solid var(--border-soft);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.daily-summary-card.profit {
+  background: linear-gradient(135deg, #fff8ef, #fffdfa);
+  border-color: #e7caaa;
+}
+
+.daily-summary-card.items .summary-info.centered {
+  width: 100%;
+  text-align: center;
+}
+
+.summary-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 50px;
+  border-radius: 17px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.daily-summary-card.profit .summary-icon-wrapper {
+  background: #f2e3d2;
+}
+
+.summary-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-info span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.summary-info strong {
+  color: var(--primary);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 900;
+}
+
+.section-subtitle {
+  margin-top: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.no-records-message,
+.no-data {
+  text-align: center;
+  padding: 34px 16px;
+  font-style: italic;
+}
+
+.table-summary {
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--surface-soft);
+  border-left: 4px solid var(--primary);
+  border-radius: 14px;
+  color: var(--text-main);
+}
+
+.table-summary strong,
+.loss-value {
+  color: var(--primary);
+  font-weight: 900;
+}
+
+.loss-value {
+  color: var(--danger);
+}
+
+.add-item-box {
+  background: rgba(255, 248, 239, 0.82) !important;
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+}
+
+.add-item-box .form-row {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px !important;
+}
+
+.cart-list {
+  border-radius: 16px;
+}
+
+@media (max-width: 1180px) {
+  .category-management-flex-content,
+  .user-management-flex-content {
+    grid-template-columns: 1fr;
+  }
+
+  .category-form-box,
+  .user-form-box {
+    position: static;
+  }
+
+  .filter-grid {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+
+  .daily-summary-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .category-management-flex-content,
+  .user-management-flex-content {
+    gap: 18px;
+  }
+
+  .filter-grid,
+  .add-item-box .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .header-controls-section,
+  .date-filter-wrapper,
+  .action-button.primary,
+  .btn-primary {
+    width: 100%;
+  }
+
+  .actions-cell {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .sales-header-grid {
+    align-items: stretch;
+  }
+
+  .header-controls-section {
+    width: 100%;
+    flex: 1 1 100%;
+    justify-content: stretch;
+  }
+
+  .date-filter-wrapper,
+  .header-controls-section .action-button.primary {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.product-management-layout {
+  width: 100% !important;
+  max-width: 1650px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 270px minmax(0, 1fr) !important;
+  gap: 20px !important;
+  align-items: flex-start !important;
+}
+
+.product-management-layout > div:first-child {
+  width: 270px !important;
+  min-width: 270px !important;
+  max-width: 270px !important;
+}
+
+.product-management-layout > div:first-child .content-box {
+  width: 100% !important;
+  max-width: 270px !important;
+  padding: 18px 14px !important;
+  border-radius: 22px !important;
+}
+
+.product-management-layout > div:first-child .content-box-title {
+  font-size: 1.45rem !important;
+  line-height: 1.08 !important;
+  margin-bottom: 16px !important;
+}
+
+.product-management-layout > div:first-child .form-group {
+  margin-bottom: 11px !important;
+}
+
+.product-management-layout > div:first-child label {
+  font-size: 0.86rem !important;
+  margin-bottom: 5px !important;
+}
+
+.product-management-layout > div:first-child input,
+.product-management-layout > div:first-child textarea,
+.product-management-layout > div:first-child select {
+  width: 100%;
+  min-height: 38px !important;
+  padding: 8px 11px !important;
+  font-size: 0.84rem !important;
+  border-radius: 12px !important;
+}
+
+.product-management-layout > div:first-child textarea {
+  min-height: 72px !important;
+}
+
+.product-management-layout > div:last-child {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.product-list-card {
+  width: 100% !important;
+  padding: 20px 22px !important;
+  border-radius: 24px !important;
+  background: rgba(255, 253, 250, 0.96);
+  box-shadow: 0 18px 36px rgba(124, 93, 60, 0.08);
+  overflow: visible !important;
+}
+
+.product-list-header {
+  display: grid !important;
+  grid-template-columns: minmax(230px, 1fr) minmax(360px, 540px) !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 18px !important;
+}
+
+.product-list-header .content-box-title {
+  margin: 0 !important;
+  font-size: 1.8rem !important;
+  line-height: 1.05 !important;
+  color: var(--primary);
+}
+
+.product-list-search {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 90px auto !important;
+  gap: 8px !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.product-list-search input {
+  width: 100%;
+  height: 46px !important;
+  padding: 0 15px;
+  border: 1px solid var(--border-soft);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-main);
+  outline: none;
+  box-sizing: border-box;
+  font-size: 0.9rem !important;
+}
+
+.product-list-search button {
+  border: 0;
+  border-radius: 15px;
+  min-width: 86px !important;
+  height: 46px !important;
+  padding: 0 10px !important;
+  color: #fffdfa;
+  font-weight: 800;
+  cursor: pointer;
+  background: var(--primary);
+  font-size: 0.88rem !important;
+}
+
+.product-list-container {
+  width: 100% !important;
+  overflow-x: visible !important;
+  padding-top: 6px;
+}
+
+.product-table colgroup {
+  display: none !important;
+}
+
+.product-table .money-cell {
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+.product-table .quantity-cell {
+  display: table-cell !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  font-weight: 900 !important;
+  color: #4f4f4f !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+.product-table .actions-cell {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+.product-table .actions-cell .action-button {
+  min-width: 62px !important;
+  padding: 7px 8px !important;
+  border-radius: 12px !important;
+  font-size: 0.76rem !important;
+  font-weight: 800 !important;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 1120px) {
+  .product-management-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-management-layout > div:first-child {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  .product-management-layout > div:first-child .content-box {
+    max-width: none !important;
+  }
+
+  .product-list-container {
+    overflow-x: auto !important;
+  }
+
+  .product-table {
+    min-width: 900px !important;
+  }
+}
+
+.product-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
+  background: transparent;
+}
+
+.product-table th,
+.product-table td {
+  padding: 11px 6px !important;
+  font-size: 0.8rem !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid rgba(232, 205, 168, 0.5);
+  box-sizing: border-box !important;
+}
+
+.product-table th:nth-child(1),
+.product-table td:nth-child(1) {
+  width: 14% !important;
+}
+
+.product-table th:nth-child(2),
+.product-table td:nth-child(2) {
+  width: 25% !important;
+}
+
+.product-table th:nth-child(3),
+.product-table td:nth-child(3) {
+  width: 10% !important;
+}
+
+.product-table th:nth-child(4),
+.product-table td:nth-child(4) {
+  width: 10% !important;
+}
+
+.product-table th:nth-child(5),
+.product-table td:nth-child(5) {
+  width: 10% !important;
+}
+
+.product-table th:nth-child(6),
+.product-table td:nth-child(6) {
+  width: 9% !important;
+  text-align: center !important;
+  min-width: 70px !important;
+}
+
+.product-table th:nth-child(7),
+.product-table td:nth-child(7) {
+  width: 22% !important;
+  text-align: center !important;
+  min-width: 180px !important;
+}
+
+.product-table .quantity-cell,
+.product-table td:nth-child(6) {
+  white-space: nowrap !important;
+  text-align: center !important;
+  font-variant-numeric: tabular-nums !important;
+  display: table-cell !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-weight: 900 !important;
+  color: #4f4f4f !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.product-table .actions-cell,
+.product-table td.actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.product-table .actions-buttons {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+}
+
+.product-table .actions-buttons .action-button {
+  min-width: 70px !important;
+  padding: 8px 10px !important;
+  border-radius: 13px !important;
+  font-size: 0.8rem !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+.product-table .money-cell,
+.product-table td:nth-child(4),
+.product-table td:nth-child(5) {
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+.product-list-card.status-card {
+  position: relative !important;
+  overflow: hidden !important;
+  border-left: 1px solid var(--border-soft) !important;
+  padding-left: 34px !important;
+}
+
+.product-list-card.status-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 7px !important;
+  background: #2e7d32 !important;
+  border-radius: 24px 0 0 24px !important;
+  z-index: 1 !important;
+}
+
+.product-list-card > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.consultation-page {
+  width: min(100%, 1500px) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 28px !important;
+}
+
+.consultation-filter-card,
+.consultation-results-card {
+  width: 100% !important;
+  padding: 28px !important;
+  border-radius: 28px !important;
+  background: rgba(255, 253, 250, 0.96) !important;
+  overflow: hidden !important;
+}
+
+.consultation-filter-card .content-box-title,
+.consultation-results-card .content-box-title {
+  margin: 0 0 24px 0 !important;
+  font-size: clamp(1.9rem, 2.6vw, 2.4rem) !important;
+  line-height: 1.05 !important;
+}
+
+.consultation-filter-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(180px, 1fr)) !important;
+  gap: 16px !important;
+  align-items: end !important;
+}
+
+.consultation-filter-grid input,
+.consultation-filter-grid select,
+.consultation-sort-row select,
+.consultation-search-row input {
+  width: 100% !important;
+  height: 54px !important;
+  padding: 0 18px !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 16px !important;
+  background: #fffdfa !important;
+  font-size: 1rem !important;
+  color: var(--text-main) !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+.consultation-date-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.consultation-date-field label {
+  color: var(--primary) !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  margin-left: 4px !important;
+}
+
+.consultation-sort-row {
+  display: grid !important;
+  grid-template-columns: minmax(220px, 1fr) minmax(180px, 260px) auto !important;
+  gap: 14px !important;
+  padding-top: 20px !important;
+  margin-top: 20px !important;
+  border-top: 1px solid var(--border-soft) !important;
+}
+
+.consultation-sort-row .clear-button {
+  min-width: 150px !important;
+  height: 54px !important;
+  border-radius: 16px !important;
+  border: 1px solid #ead6be !important;
+  background: #f8efe4 !important;
+  color: var(--primary) !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.consultation-results-header {
+  display: grid !important;
+  grid-template-columns: auto minmax(360px, 1fr) !important;
+  gap: 24px !important;
+  align-items: center !important;
+  margin-bottom: 24px !important;
+}
+
+.consultation-results-header .content-box-title {
+  margin: 0 !important;
+}
+
+.consultation-search-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 120px !important;
+  gap: 14px !important;
+}
+
+.consultation-search-row button {
+  height: 54px !important;
+  border: none !important;
+  border-radius: 16px !important;
+  background: var(--primary) !important;
+  color: #fffdfa !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.consultation-table-wrapper {
+  width: 100% !important;
+  overflow-x: auto !important;
+}
+
+.consultation-table {
+  width: 100% !important;
+  min-width: 980px !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.consultation-table th,
+.consultation-table td {
+  padding: 14px 10px !important;
+  font-size: 0.92rem !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid rgba(232, 205, 168, 0.5) !important;
+}
+
+.consultation-table th {
+  color: #111 !important;
+  font-weight: 900 !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+}
+
+.consultation-table td {
+  color: #5f5f5f !important;
+}
+
+.consultation-table th:nth-child(1),
+.consultation-table td:nth-child(1) {
+  width: 14% !important;
+}
+
+.consultation-table th:nth-child(2),
+.consultation-table td:nth-child(2) {
+  width: 26% !important;
+}
+
+.consultation-table th:nth-child(3),
+.consultation-table td:nth-child(3) {
+  width: 12% !important;
+}
+
+.consultation-table th:nth-child(4),
+.consultation-table td:nth-child(4),
+.consultation-table th:nth-child(5),
+.consultation-table td:nth-child(5) {
+  width: 11% !important;
+}
+
+.consultation-table th:nth-child(6),
+.consultation-table td:nth-child(6) {
+  width: 8% !important;
+  text-align: center !important;
+}
+
+.consultation-table th:nth-child(7),
+.consultation-table td:nth-child(7) {
+  width: 18% !important;
+  text-align: center !important;
+}
+
+.consultation-table .money-cell,
+.consultation-table .quantity-cell {
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+.consultation-table .quantity-cell {
+  text-align: center !important;
+  font-weight: 900 !important;
+}
+
+.consultation-table .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.consultation-table .actions-buttons {
+  display: inline-flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+.consultation-table .action-button {
+  min-width: 70px !important;
+  padding: 8px 10px !important;
+  border-radius: 13px !important;
+  font-size: 0.82rem !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.consultation-table .edit-button {
+  background: #f7eee4 !important;
+  color: var(--primary) !important;
+  border: 1px solid #ebd6bd !important;
+}
+
+.consultation-table .delete-button {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+.empty-table-message {
+  text-align: center !important;
+  padding: 28px !important;
+  color: #8a8a8a !important;
+}
+
+@media (max-width: 1100px) {
+  .consultation-filter-grid {
+    grid-template-columns: repeat(2, minmax(180px, 1fr)) !important;
+  }
+
+  .consultation-results-header,
+  .consultation-sort-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consultation-search-row {
+    grid-template-columns: 1fr auto !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .consultation-filter-card,
+  .consultation-results-card {
+    padding: 20px !important;
+  }
+
+  .consultation-filter-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consultation-search-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .consultation-search-row button,
+  .consultation-sort-row .clear-button {
+    width: 100% !important;
+  }
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.data-table .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.data-table .actions-cell .actions-buttons,
+.data-table .actions-cell > div {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+}
+
+.data-table .actions-cell .action-button,
+.data-table .actions-cell button {
+  min-width: 86px !important;
+}
+
+.sales-table .actions-cell,
+.data-table.sales-table .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.sales-table .actions-buttons,
+.data-table.sales-table .actions-buttons {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+}
+
+.sales-table .action-button,
+.data-table.sales-table .action-button {
+  min-width: 92px !important;
+}
+
+/* ==========================================================================
+   AJUSTES FINAIS LIMPOS - PADARIA REAL
+   Bloco único para Empresas, Produtos, Consulta, Vendas, Desperdício e Usuários.
+   Evita blocos repetidos e corrige rolagem horizontal desnecessária.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CATEGORIAS - AÇÕES
+   -------------------------------------------------------------------------- */
+
+.category-list-box .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  min-width: 190px !important;
+}
+
+.category-list-box .actions-cell .actions-buttons,
+.category-list-box .actions-cell > div {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+}
+
+.category-list-box .action-button {
+  min-width: 86px !important;
+  min-height: 40px !important;
+  padding: 0 12px !important;
+  border-radius: 14px !important;
+  font-weight: 900 !important;
+}
+
+/* --------------------------------------------------------------------------
+   EMPRESAS - CSS ÚNICO
+   -------------------------------------------------------------------------- */
+
+.company-management-container {
+  width: min(100%, 1520px) !important;
+  max-width: 1520px !important;
+  margin: 0 auto !important;
+  padding: 0 24px 42px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.company-summary-grid {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(220px, 1fr)) !important;
+  gap: 22px !important;
+  margin: 4px 0 34px !important;
+}
+
+.company-summary-card,
+.company-summary-card.status-card,
+.company-summary-card.status-card--info,
+.company-summary-card.status-card--positive,
+.company-summary-card.status-card--warning {
+  position: relative !important;
+  min-width: 0 !important;
+  min-height: 118px !important;
+  display: grid !important;
+  grid-template-columns: 58px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 18px !important;
+  padding: 24px 26px !important;
+  border-radius: 28px !important;
+  background: linear-gradient(135deg, #fffdfa 0%, #fff8ef 100%) !important;
+  border: 1px solid #ead7bc !important;
+  box-shadow: 0 18px 36px rgba(124, 93, 60, 0.1) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.company-summary-card::before,
+.company-summary-card::after,
+.company-summary-card.status-card::before,
+.company-summary-card.status-card::after,
+.company-form-box::before,
+.company-form-box::after,
+.company-list-box::before,
+.company-list-box::after {
+  content: none !important;
+  display: none !important;
+}
+
+.company-summary-card.status-card--info {
+  background: linear-gradient(135deg, #f5f9ff 0%, #fffdfa 72%) !important;
+}
+
+.company-summary-card.status-card--positive {
+  background: linear-gradient(135deg, #f5fbf6 0%, #fffdfa 72%) !important;
+}
+
+.company-summary-card.status-card--warning {
+  background: linear-gradient(135deg, #fff8ef 0%, #fffdfa 72%) !important;
+}
+
+.company-summary-card > svg {
+  width: 26px !important;
+  height: 26px !important;
+  padding: 14px !important;
+  border-radius: 20px !important;
+  box-sizing: content-box !important;
+  flex-shrink: 0 !important;
+}
+
+.company-summary-card.status-card--info > svg {
+  background: #eaf3ff !important;
+  color: #1f6fe5 !important;
+}
+
+.company-summary-card.status-card--positive > svg {
+  background: #eaf8ee !important;
+  color: #1f7a36 !important;
+}
+
+.company-summary-card.status-card--warning > svg {
+  background: #fff0dc !important;
+  color: #c96f00 !important;
+}
+
+.company-summary-card > div {
+  min-width: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 8px !important;
+}
+
+.company-summary-card span {
+  margin: 0 !important;
+  color: #6f665d !important;
+  font-size: 0.95rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+}
+
+.company-summary-card strong {
+  margin: 0 !important;
+  color: #2d2823 !important;
+  font-size: 2.25rem !important;
+  font-weight: 950 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.company-management-flex-content {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: 360px minmax(0, 1fr) !important;
+  gap: 28px !important;
+  align-items: flex-start !important;
+  box-sizing: border-box !important;
+}
+
+.company-form-box {
+  width: 100% !important;
+  max-width: 360px !important;
+  min-width: 0 !important;
+  padding: 30px 28px !important;
+  border-radius: 28px !important;
+  background: linear-gradient(135deg, #eef6ff 0%, #fffdfa 58%) !important;
+  border: 1px solid #8fb9e8 !important;
+  border-left: 9px solid #1565c0 !important;
+  box-shadow: var(--shadow-soft) !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  position: sticky !important;
+  top: 24px !important;
+}
+
+.company-list-box {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 30px 32px !important;
+  border-radius: 28px !important;
+  background: rgba(255, 253, 250, 0.96) !important;
+  border: 1px solid #86b98b !important;
+  border-left: 9px solid #1b7f32 !important;
+  box-shadow: var(--shadow-soft) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.company-list-header {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: minmax(260px, 1fr) minmax(320px, 430px) !important;
+  gap: 24px !important;
+  align-items: start !important;
+  margin-bottom: 30px !important;
+}
+
+.company-search-input {
+  width: 100% !important;
+  height: 56px !important;
+  padding: 0 20px !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 18px !important;
+  background: #fffdfa !important;
+  color: var(--text-main) !important;
+  font-size: 0.96rem !important;
+  font-weight: 700 !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+.company-list-box .table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  padding-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.company-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+  background: transparent !important;
+}
+
+.company-table th,
+.company-table td {
+  padding: 14px 7px !important;
+  font-size: 0.82rem !important;
+  line-height: 1.3 !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid rgba(232, 205, 168, 0.5) !important;
+  box-sizing: border-box !important;
+}
+
+.company-name-cell,
+.company-type-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.company-type-badge,
+.company-status-badge,
+.system-company-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 28px !important;
+  padding: 5px 10px !important;
+  border-radius: 999px !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+.company-type-badge.matriz {
+  color: #8a4d13 !important;
+  background: #fff3dc !important;
+  border: 1px solid #efc98f !important;
+}
+
+.company-type-badge.filial,
+.company-status-badge.ativo {
+  color: #1f6f3f !important;
+  background: #eaf8ee !important;
+  border: 1px solid #bfe5ca !important;
+}
+
+.system-company-badge {
+  color: #1f5fa8 !important;
+  background: #edf5ff !important;
+  border: 1px solid #bfd7ff !important;
+}
+
+.company-status-badge.inativo {
+  color: var(--danger) !important;
+  background: #fff1ec !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   PRODUTOS - TABELA LIMPA SEM SCROLL EM TELA GRANDE
+   Estrutura esperada: Nome | Categoria | Empresa | Venda | Qtd. | Ações
+   -------------------------------------------------------------------------- */
+
+.product-management-layout {
+  width: 100% !important;
+  max-width: 1680px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 285px minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: flex-start !important;
+}
+
+.product-management-layout > div:first-child {
+  width: 285px !important;
+  min-width: 285px !important;
+  max-width: 285px !important;
+}
+
+.product-management-layout > div:first-child .content-box {
+  width: 100% !important;
+  max-width: 285px !important;
+  padding: 22px 16px !important;
+  border-radius: 24px !important;
+  box-sizing: border-box !important;
+}
+
+.product-list-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 30px 32px !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.product-list-card.status-card {
+  position: relative !important;
+  border-left: 1px solid var(--border-soft) !important;
+  padding-left: 34px !important;
+}
+
+.product-list-card.status-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 7px !important;
+  background: #2e7d32 !important;
+  border-radius: 24px 0 0 24px !important;
+  z-index: 1 !important;
+}
+
+.product-list-card > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.product-list-header {
+  display: grid !important;
+  grid-template-columns: minmax(260px, 1fr) minmax(480px, 720px) !important;
+  gap: 22px !important;
+  align-items: start !important;
+  margin-bottom: 26px !important;
+}
+
+.product-list-search {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 110px 110px !important;
+  gap: 12px !important;
+  width: 100% !important;
+  align-items: center !important;
+}
+
+.product-list-search input,
+.product-list-search button {
+  height: 54px !important;
+  border-radius: 18px !important;
+  box-sizing: border-box !important;
+}
+
+.product-list-search button {
+  min-width: 110px !important;
+  padding: 0 18px !important;
+  font-size: 0.9rem !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.product-list-search button[type="submit"] {
+  background: var(--primary) !important;
+  color: #fffdfa !important;
+  border: none !important;
+}
+
+.product-list-search button[type="button"] {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+.product-list-container {
+  width: 100% !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  padding-bottom: 0 !important;
+}
+
+.product-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+  background: transparent !important;
+}
+
+.product-table th,
+.product-table td {
+  padding: 15px 10px !important;
+  font-size: 0.86rem !important;
+  line-height: 1.35 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+}
+
+.product-table th {
+  color: #111 !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+.product-table th:nth-child(1),
+.product-table td:nth-child(1) {
+  width: 27% !important;
+}
+
+.product-table th:nth-child(2),
+.product-table td:nth-child(2) {
+  width: 12% !important;
+}
+
+.product-table th:nth-child(3),
+.product-table td:nth-child(3) {
+  width: 20% !important;
+}
+
+.product-table th:nth-child(4),
+.product-table td:nth-child(4) {
+  width: 12% !important;
+  white-space: nowrap !important;
+}
+
+.product-table th:nth-child(5),
+.product-table td:nth-child(5) {
+  width: 7% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-weight: 900 !important;
+}
+
+.product-table th:nth-child(6),
+.product-table td:nth-child(6) {
+  width: 22% !important;
+  text-align: center !important;
+}
+
+.product-name-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+}
+
+.product-name-cell strong {
+  color: var(--text-main) !important;
+  font-size: 0.92rem !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+}
+
+.product-name-cell span {
+  color: var(--text-muted) !important;
+  font-size: 0.78rem !important;
+  line-height: 1.25 !important;
+}
+
+.product-company-cell {
+  color: var(--text-main) !important;
+  font-size: 0.84rem !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+}
+
+.product-table .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.product-table .actions-buttons {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  width: 100% !important;
+}
+
+.product-table .action-button,
+.product-table .actions-cell button {
+  min-width: 76px !important;
+  height: 38px !important;
+  padding: 0 9px !important;
+  border-radius: 13px !important;
+  font-size: 0.76rem !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  cursor: pointer !important;
+}
+
+.product-table .edit-button {
+  background: #f7eee4 !important;
+  color: var(--primary) !important;
+  border: 1px solid #ebd6bd !important;
+}
+
+.product-table .delete-button {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+.product-management-layout > div:first-child .cancel-button,
+.product-management-layout > div:first-child button[type="button"] {
+  display: none !important;
+}
+
+.product-management-layout > div:first-child .submit-button,
+.product-management-layout > div:first-child .product-submit-button,
+.product-management-layout > div:first-child button[type="submit"] {
+  width: 100% !important;
+  min-height: 54px !important;
+  margin-top: 10px !important;
+  border: none !important;
+  border-radius: 18px !important;
+  background: var(--primary) !important;
+  color: #fffdfa !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+/* --------------------------------------------------------------------------
+   CONSULTA, VENDAS E DESPERDÍCIO - MANTÉM SCROLL SÓ EM TABELAS MUITO LARGAS
+   -------------------------------------------------------------------------- */
+
+.consultation-page {
+  width: min(100%, 1580px) !important;
+  max-width: 1580px !important;
+  margin: 0 auto !important;
+}
+
+.consultation-table-wrapper,
+.sales-form-table-wrapper,
+.sales-items-table-wrapper,
+.table-section {
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+.consultation-table,
+.sales-table,
+.data-table.sales-table,
+.table-section > .data-table {
+  width: 100% !important;
+  min-width: 980px !important;
+  table-layout: fixed !important;
+}
+
+/* --------------------------------------------------------------------------
+   USUÁRIOS - SEM SCROLL HORIZONTAL EM TELA GRANDE
+   Estrutura esperada: ID | Usuário | Nome | Função | Empresa | Status | Ações
+   -------------------------------------------------------------------------- */
+
+.user-management-container {
+  width: min(100%, 1600px) !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+}
+
+.user-management-flex-content {
+  display: grid !important;
+  grid-template-columns: 340px minmax(0, 1fr) !important;
+  gap: 30px !important;
+  align-items: flex-start !important;
+}
+
+.user-form-box {
+  width: 100% !important;
+  max-width: 340px !important;
+  padding: 26px 24px !important;
+  border-radius: 24px !important;
+  box-sizing: border-box !important;
+  position: sticky !important;
+  top: 28px !important;
+}
+
+.user-list-box {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 28px 26px !important;
+  border-radius: 28px !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  box-sizing: border-box !important;
+}
+
+.user-list-box .data-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.user-list-box .data-table th,
+.user-list-box .data-table td {
+  padding: 13px 6px !important;
+  font-size: 0.78rem !important;
+  line-height: 1.28 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+}
+
+.user-list-box .data-table th {
+  color: #111 !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .data-table td {
+  color: #5f5f5f !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.user-list-box .data-table th:nth-child(1),
+.user-list-box .data-table td:nth-child(1) {
+  width: 5% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .data-table th:nth-child(2),
+.user-list-box .data-table td:nth-child(2) {
+  width: 11% !important;
+}
+
+.user-list-box .data-table th:nth-child(3),
+.user-list-box .data-table td:nth-child(3) {
+  width: 17% !important;
+}
+
+.user-list-box .data-table th:nth-child(4),
+.user-list-box .data-table td:nth-child(4) {
+  width: 8% !important;
+  text-align: center !important;
+}
+
+.user-list-box .data-table th:nth-child(5),
+.user-list-box .data-table td:nth-child(5) {
+  width: 15% !important;
+}
+
+.user-list-box .data-table th:nth-child(6),
+.user-list-box .data-table td:nth-child(6) {
+  width: 11% !important;
+  text-align: center !important;
+}
+
+.user-list-box .data-table th:nth-child(7),
+.user-list-box .data-table td:nth-child(7) {
+  width: 33% !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+
+.user-list-box .actions-buttons,
+.user-list-box .actions-cell > div {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .action-button,
+.user-list-box .actions-cell button {
+  min-width: 76px !important;
+  height: 38px !important;
+  padding: 0 10px !important;
+  border-radius: 13px !important;
+  font-size: 0.76rem !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .reset-password-button {
+  min-width: 118px !important;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVO
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1350px) {
+  .company-summary-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr)) !important;
+  }
+
+  .product-management-layout,
+  .user-management-flex-content,
+  .company-management-flex-content {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-management-layout > div:first-child,
+  .product-management-layout > div:first-child .content-box,
+  .user-form-box,
+  .company-form-box {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    position: static !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .product-list-container,
+  .user-list-box,
+  .company-list-box .table-responsive {
+    overflow-x: auto !important;
+  }
+
+  .product-table,
+  .user-list-box .data-table,
+  .company-table {
+    min-width: 920px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .product-list-header,
+  .product-list-search,
+  .company-list-header {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-list-search button {
+    width: 100% !important;
+  }
+
+  .consultation-table,
+  .sales-table,
+  .data-table.sales-table,
+  .table-section > .data-table {
+    min-width: 920px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .company-summary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .company-management-container,
+  .user-management-container {
+    padding: 0 10px 32px !important;
+  }
+}
+
+/* ==========================================================================
+   AJUSTE FINAL - BOTÕES DE AÇÕES EM USUÁRIOS, CATEGORIAS E EMPRESAS
+   ========================================================================== */
+
+/* =========================================================
+   USUÁRIOS E CATEGORIAS - MAIS ESPAÇO ENTRE BOTÕES
+   ========================================================= */
+
+.user-list-box .actions-cell,
+.category-list-box .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.user-list-box .actions-buttons,
+.user-list-box .actions-cell > div,
+.category-list-box .actions-buttons,
+.category-list-box .actions-cell > div {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+.user-list-box .action-button,
+.user-list-box .actions-cell button,
+.category-list-box .action-button,
+.category-list-box .actions-cell button {
+  min-width: 92px !important;
+  height: 42px !important;
+  padding: 0 16px !important;
+  border-radius: 15px !important;
+  font-size: 0.82rem !important;
+  font-weight: 900 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Botão Editar */
+.user-list-box .edit-button,
+.category-list-box .edit-button {
+  background: #f7eee4 !important;
+  color: var(--primary) !important;
+  border: 1px solid #ebd6bd !important;
+}
+
+/* Botão Excluir */
+.user-list-box .delete-button,
+.category-list-box .delete-button {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+/* Usuários: aumenta um pouco a coluna de ações para comportar o espaçamento */
+.user-list-box .data-table th:nth-child(7),
+.user-list-box .data-table td:nth-child(7) {
+  width: 36% !important;
+  min-width: 250px !important;
+  text-align: center !important;
+}
+
+/* Usuários: tira um pouco das colunas anteriores para caber melhor */
+.user-list-box .data-table th:nth-child(3),
+.user-list-box .data-table td:nth-child(3) {
+  width: 15% !important;
+}
+
+.user-list-box .data-table th:nth-child(5),
+.user-list-box .data-table td:nth-child(5) {
+  width: 14% !important;
+}
+
+/* Categorias: aumenta espaço das ações */
+.category-list-box .data-table th:nth-child(5),
+.category-list-box .data-table td:nth-child(5) {
+  width: 26% !important;
+  min-width: 250px !important;
+  text-align: center !important;
+}
+
+/* Categorias: redistribui colunas */
+.category-list-box .data-table th:nth-child(1),
+.category-list-box .data-table td:nth-child(1) {
+  width: 8% !important;
+}
+
+.category-list-box .data-table th:nth-child(2),
+.category-list-box .data-table td:nth-child(2) {
+  width: 15% !important;
+}
+
+.category-list-box .data-table th:nth-child(3),
+.category-list-box .data-table td:nth-child(3) {
+  width: 34% !important;
+}
+
+.category-list-box .data-table th:nth-child(4),
+.category-list-box .data-table td:nth-child(4) {
+  width: 17% !important;
+  text-align: center !important;
+}
+
+/* =========================================================
+   EMPRESAS E FILIAIS - BOTÕES NÃO CORTADOS
+   ========================================================= */
+
+.company-list-box {
+  overflow: hidden !important;
+  padding-right: 34px !important;
+}
+
+.company-list-box .table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.company-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+/* Redistribui as colunas para abrir espaço real nas ações */
+.company-table th:nth-child(1),
+.company-table td:nth-child(1) {
+  width: 18% !important;
+}
+
+.company-table th:nth-child(2),
+.company-table td:nth-child(2) {
+  width: 16% !important;
+}
+
+.company-table th:nth-child(3),
+.company-table td:nth-child(3) {
+  width: 15% !important;
+}
+
+.company-table th:nth-child(4),
+.company-table td:nth-child(4) {
+  width: 15% !important;
+}
+
+.company-table th:nth-child(5),
+.company-table td:nth-child(5) {
+  width: 10% !important;
+  text-align: center !important;
+}
+
+.company-table th:nth-child(6),
+.company-table td:nth-child(6) {
+  width: 26% !important;
+  min-width: 240px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.company-table .actions-cell,
+.company-table td.actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.company-table .actions-buttons,
+.company-table .actions-cell > div {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+.company-table .action-button,
+.company-table .actions-cell button {
+  min-width: 86px !important;
+  height: 42px !important;
+  padding: 0 12px !important;
+  border-radius: 15px !important;
+  font-size: 0.8rem !important;
+  font-weight: 900 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.company-table .action-button svg,
+.company-table .actions-cell button svg,
+.user-list-box .action-button svg,
+.user-list-box .actions-cell button svg,
+.category-list-box .action-button svg,
+.category-list-box .actions-cell button svg {
+  width: 15px !important;
+  height: 15px !important;
+  flex-shrink: 0 !important;
+}
+
+.company-table .edit-button {
+  background: #f7eee4 !important;
+  color: var(--primary) !important;
+  border: 1px solid #ebd6bd !important;
+}
+
+.company-table .delete-button {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+.company-table .delete-button:disabled,
+.company-table button:disabled,
+.user-list-box .delete-button:disabled,
+.user-list-box button:disabled,
+.category-list-box .delete-button:disabled,
+.category-list-box button:disabled {
+  opacity: 0.48 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Em telas menores, permite scroll horizontal porque não cabe fisicamente */
+@media (max-width: 1180px) {
+  .company-list-box .table-responsive,
+  .user-list-box,
+  .category-list-box {
+    overflow-x: auto !important;
+  }
+
+  .company-table,
+  .user-list-box .data-table,
+  .category-list-box .data-table {
+    min-width: 980px !important;
+  }
+}
+
+/* ==========================================================================
+   CORREÇÃO REAL - ESPAÇO ENTRE BOTÕES DE AÇÃO
+   Usuários e Categorias
+   ========================================================================== */
+
+/* Aumenta a coluna de ações em Usuários */
+.user-list-box .data-table th:last-child,
+.user-list-box .data-table td:last-child {
+  width: 260px !important;
+  min-width: 260px !important;
+  max-width: 260px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Aumenta a coluna de ações em Categorias */
+.category-list-box .data-table th:last-child,
+.category-list-box .data-table td:last-child {
+  width: 260px !important;
+  min-width: 260px !important;
+  max-width: 260px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Célula de ações */
+.user-list-box .actions-cell,
+.category-list-box .actions-cell,
+.user-list-box td:last-child,
+.category-list-box td:last-child {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Caso tenha uma div envolvendo os botões */
+.user-list-box .actions-cell > div,
+.category-list-box .actions-cell > div,
+.user-list-box td:last-child > div,
+.category-list-box td:last-child > div {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+/* Caso os botões estejam direto dentro do td */
+.user-list-box .actions-cell button + button,
+.category-list-box .actions-cell button + button,
+.user-list-box td:last-child button + button,
+.category-list-box td:last-child button + button {
+  margin-left: 18px !important;
+}
+
+/* Botões */
+.user-list-box .actions-cell button,
+.category-list-box .actions-cell button,
+.user-list-box td:last-child button,
+.category-list-box td:last-child button,
+.user-list-box .action-button,
+.category-list-box .action-button {
+  min-width: 96px !important;
+  height: 42px !important;
+  padding: 0 16px !important;
+  border-radius: 15px !important;
+  font-size: 0.82rem !important;
+  font-weight: 900 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+/* Editar */
+.user-list-box .edit-button,
+.category-list-box .edit-button,
+.user-list-box td:last-child button:first-child,
+.category-list-box td:last-child button:first-child {
+  background: #f7eee4 !important;
+  color: var(--primary) !important;
+  border: 1px solid #ebd6bd !important;
+}
+
+/* Excluir */
+.user-list-box .delete-button,
+.category-list-box .delete-button,
+.user-list-box td:last-child button:last-child,
+.category-list-box td:last-child button:last-child {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+/* ==========================================================================
+   EMPRESAS E FILIAIS - BOTÕES NÃO CORTADOS
+   ========================================================================== */
+
+.company-list-box {
+  overflow: hidden !important;
+  padding-right: 40px !important;
+}
+
+.company-list-box .table-responsive {
+  width: 100% !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+.company-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: fixed !important;
+}
+
+/* Colunas ajustadas para abrir espaço nas ações */
+.company-table th:nth-child(1),
+.company-table td:nth-child(1) {
+  width: 17% !important;
+}
+
+.company-table th:nth-child(2),
+.company-table td:nth-child(2) {
+  width: 15% !important;
+}
+
+.company-table th:nth-child(3),
+.company-table td:nth-child(3) {
+  width: 14% !important;
+}
+
+.company-table th:nth-child(4),
+.company-table td:nth-child(4) {
+  width: 15% !important;
+}
+
+.company-table th:nth-child(5),
+.company-table td:nth-child(5) {
+  width: 10% !important;
+  text-align: center !important;
+}
+
+.company-table th:nth-child(6),
+.company-table td:nth-child(6) {
+  width: 29% !important;
+  min-width: 270px !important;
+  max-width: 270px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Célula de ações de empresas */
+.company-table .actions-cell,
+.company-table td:last-child {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Div dos botões em empresas */
+.company-table .actions-cell > div,
+.company-table td:last-child > div {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+/* Caso os botões estejam direto no td */
+.company-table .actions-cell button + button,
+.company-table td:last-child button + button {
+  margin-left: 12px !important;
+}
+
+/* Botões empresas */
+.company-table .actions-cell button,
+.company-table td:last-child button,
+.company-table .action-button {
+  min-width: 92px !important;
+  height: 42px !important;
+  padding: 0 14px !important;
+  border-radius: 15px !important;
+  font-size: 0.8rem !important;
+  font-weight: 900 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+/* Responsivo: em telas menores permite scroll */
+@media (max-width: 1180px) {
+  .company-list-box .table-responsive,
+  .user-list-box,
+  .category-list-box {
+    overflow-x: auto !important;
+  }
+
+  .company-table,
+  .user-list-box .data-table,
+  .category-list-box .data-table {
+    min-width: 980px !important;
+  }
+}
+
+/* ==========================================================================
+   AÇÕES - ÍCONES E HOVER FINAL
+   ========================================================================== */
+
+/* Botões de ação com ícone */
+.action-button,
+.actions-cell button,
+.edit-button,
+.delete-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  white-space: nowrap !important;
+}
+
+/* Ícones dentro dos botões */
+.action-button svg,
+.actions-cell button svg,
+.edit-button svg,
+.delete-button svg {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Editar - normal */
+.edit-button,
+.actions-cell .edit-button {
+  background: #f7eee4 !important;
+  color: var(--primary) !important;
+  border: 1px solid #ebd6bd !important;
+}
+
+/* Editar - hover */
+.edit-button:hover:not(:disabled),
+.actions-cell .edit-button:hover:not(:disabled) {
+  background: #ead9c4 !important;
+  color: #8f4f2f !important;
+  border-color: #d7b88f !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Excluir - normal */
+.delete-button,
+.actions-cell .delete-button {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+/* Excluir - hover mais vermelho */
+.delete-button:hover:not(:disabled),
+.actions-cell .delete-button:hover:not(:disabled) {
+  background: #b91c1c !important;
+  color: #ffffff !important;
+  border-color: #991b1b !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 22px rgba(185, 28, 28, 0.22) !important;
+}
+
+/* Ícone do excluir também fica branco no hover */
+.delete-button:hover:not(:disabled) svg,
+.actions-cell .delete-button:hover:not(:disabled) svg {
+  color: #ffffff !important;
+}
+
+/* Botão desabilitado */
+.delete-button:disabled,
+.edit-button:disabled,
+.actions-cell button:disabled {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   USUÁRIOS - FUNÇÕES EXTRAS E 3 BOTÕES DE AÇÃO
+   ========================================================================== */
+
+.user-list-box {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+}
+
+.user-list-box .data-table {
+  width: 100% !important;
+  min-width: 1180px !important;
+  table-layout: fixed !important;
+}
+
+.user-list-box .data-table th:nth-child(1),
+.user-list-box .data-table td:nth-child(1) {
+  width: 5% !important;
+  text-align: center !important;
+}
+
+.user-list-box .data-table th:nth-child(2),
+.user-list-box .data-table td:nth-child(2) {
+  width: 11% !important;
+}
+
+.user-list-box .data-table th:nth-child(3),
+.user-list-box .data-table td:nth-child(3) {
+  width: 15% !important;
+}
+
+.user-list-box .data-table th:nth-child(4),
+.user-list-box .data-table td:nth-child(4) {
+  width: 10% !important;
+  text-align: center !important;
+}
+
+.user-list-box .data-table th:nth-child(5),
+.user-list-box .data-table td:nth-child(5) {
+  width: 15% !important;
+}
+
+.user-list-box .data-table th:nth-child(6),
+.user-list-box .data-table td:nth-child(6) {
+  width: 10% !important;
+  text-align: center !important;
+}
+
+.user-list-box .data-table th:nth-child(7),
+.user-list-box .data-table td:nth-child(7) {
+  width: 34% !important;
+  min-width: 360px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .actions-buttons {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .action-button,
+.user-list-box .actions-cell button {
+  min-width: 86px !important;
+  height: 40px !important;
+  padding: 0 12px !important;
+  border-radius: 14px !important;
+  font-size: 0.78rem !important;
+  font-weight: 900 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+.user-list-box .action-button-reset {
+  background: #edf5ff !important;
+  color: #1f5fa8 !important;
+  border: 1px solid #bfd7ff !important;
+}
+
+.user-list-box .action-button-reset:hover:not(:disabled) {
+  background: #dcecff !important;
+  color: #174985 !important;
+}
+
+.user-company-cell {
+  color: var(--text-main) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* ==========================================================================
+   USUÁRIOS - REMOVER SCROLL HORIZONTAL E FAZER TABELA CABER
+   ========================================================================== */
+
+.user-list-box {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  padding: 28px 26px !important;
+  box-sizing: border-box !important;
+}
+
+.user-list-box .data-table {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.user-list-box .data-table th,
+.user-list-box .data-table td {
+  padding: 14px 6px !important;
+  font-size: 0.78rem !important;
+  line-height: 1.25 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* ID */
+.user-list-box .data-table th:nth-child(1),
+.user-list-box .data-table td:nth-child(1) {
+  width: 5% !important;
+  text-align: center !important;
+}
+
+/* Usuário */
+.user-list-box .data-table th:nth-child(2),
+.user-list-box .data-table td:nth-child(2) {
+  width: 10% !important;
+}
+
+/* Nome */
+.user-list-box .data-table th:nth-child(3),
+.user-list-box .data-table td:nth-child(3) {
+  width: 17% !important;
+}
+
+/* Função */
+.user-list-box .data-table th:nth-child(4),
+.user-list-box .data-table td:nth-child(4) {
+  width: 10% !important;
+  text-align: center !important;
+}
+
+/* Empresa */
+.user-list-box .data-table th:nth-child(5),
+.user-list-box .data-table td:nth-child(5) {
+  width: 17% !important;
+}
+
+/* Status */
+.user-list-box .data-table th:nth-child(6),
+.user-list-box .data-table td:nth-child(6) {
+  width: 12% !important;
+  text-align: center !important;
+}
+
+/* Ações */
+.user-list-box .data-table th:nth-child(7),
+.user-list-box .data-table td:nth-child(7) {
+  width: 29% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+/* Célula de ações */
+.user-list-box .actions-cell {
+  display: table-cell !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+/* Botões dentro das ações */
+.user-list-box .actions-buttons,
+.user-list-box .actions-cell > div {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  white-space: normal !important;
+  width: 100% !important;
+}
+
+/* Botões menores para caber sem scroll */
+.user-list-box .action-button,
+.user-list-box .actions-cell button {
+  min-width: 72px !important;
+  height: 36px !important;
+  padding: 0 9px !important;
+  border-radius: 13px !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+/* Botão de senha um pouco menor */
+.user-list-box .action-button-reset {
+  min-width: 72px !important;
+  background: #edf5ff !important;
+  color: #1f5fa8 !important;
+  border: 1px solid #bfd7ff !important;
+}
+
+/* Editar */
+.user-list-box .edit-button {
+  background: #f7eee4 !important;
+  color: var(--primary) !important;
+  border: 1px solid #ebd6bd !important;
+}
+
+/* Excluir */
+.user-list-box .delete-button {
+  background: #fff1ec !important;
+  color: var(--danger) !important;
+  border: 1px solid #f1cfc1 !important;
+}
+
+/* Ícones */
+.user-list-box .action-button svg,
+.user-list-box .actions-cell button svg {
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Status menor para caber melhor */
+.user-list-box .status-badge {
+  min-width: 82px !important;
+  padding: 8px 10px !important;
+  font-size: 0.76rem !important;
+}
+
+/* Empresa */
+.user-company-cell {
+  color: var(--text-main) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Em telas menores, aí sim permite scroll porque não cabe fisicamente */
+@media (max-width: 1180px) {
+  .user-list-box {
+    overflow-x: auto !important;
+  }
+
+  .user-list-box .data-table {
+    min-width: 980px !important;
+  }
+}

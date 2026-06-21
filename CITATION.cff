@@ -1,0 +1,27 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: Padaria Real
+authors:
+  - family-names: Campos Sigaud
+    given-names: Débora
+  - family-names: Lima Torres Guasch
+    given-names: Giovanna
+  - family-names: de Oliveira Silva
+    given-names: Maria Clara 
+  - family-names: Castro Valadares
+    given-names: Pedro Teodoro
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Vilela Cardoso
+    given-names: Leonardo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Nhimi
+    given-names: Filipe
+keywords:
+  - Padaria  
+  - Desperdício
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti4-3170100-padaria-real.git
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2022-07-14
