@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login({ onLogin }) {
@@ -6,6 +7,8 @@ function Login({ onLogin }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,6 +37,7 @@ function Login({ onLogin }) {
           onLogin(data);
         }
 
+        navigate('/dashboard');
         return;
       }
 
