@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login({ onLogin }) {
@@ -8,40 +7,18 @@ function Login({ onLogin }) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate();
-
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setError('');
     setLoading(true);
 
     try {
-      const response = await fetch('https://padaria-real-production.up.railway.app/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: username.trim(),
-          password: password.trim(),
-        }),
-      });
+      const success = await onLogin(username.trim(), password.trim());
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        localStorage.setItem('user', JSON.stringify(data));
-
-        if (onLogin) {
-          onLogin(data);
-        }
-
-        navigate('/dashboard');
-        return;
+      if (!success) {
+        setError('Usuário ou senha inválidos.');
       }
-
-      setError('Usuário ou senha inválidos.');
     } catch (error) {
       console.error('Erro ao fazer login:', error);
       setError('Erro ao conectar com o servidor.');
@@ -63,7 +40,7 @@ function Login({ onLogin }) {
           </div>
         </div>
 
-        <form className="login-card" onSubmit={handleLogin}>
+        <form className="login-card" onSubmit={handleSubmit}>
           <div className="login-card-header">
             <img
               src="/novo_logo.png"
